@@ -1,4 +1,7 @@
 {
+    "name": "stefafafan/tkhs",
+    "description": "tkhs is a simple tool to generate a presentable artifact in a Takashi-style.",
+    "license": "MIT",
     "require": {
         "symfony/console": "^7.0",
         "symfony/filesystem": "^7.0",
