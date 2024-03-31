@@ -3,7 +3,7 @@
     "description": "tkhs is a simple tool to generate a presentable artifact in a Takashi-style.",
     "license": "MIT",
     "scripts": {
-        "stan": "php ./vendor/bin/phpstan analyse --memory-limit 1G -c phpstan.neon"
+        "phpstan": "php ./vendor/bin/phpstan analyse --memory-limit 1G -c phpstan.neon"
     },
     "config": {
         "platform": {
