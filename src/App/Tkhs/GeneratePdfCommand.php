@@ -1,17 +1,4 @@
 <?php
-/**
- * PHP version 8.3
- *
- * This file defines the GeneratePdfCommand class, which is a Symfony console
- * command that converts a text file with strings into a single PDF file.
- *
- * @category Command
- * @package  App\Tkhs
- * @author   stefafafan <github.le5ke@stenyan.jp>
- * @license  MIT https://opensource.org/licenses/MIT
- * @link     https://github.com/stefafafan/tkhs
- */
-
 declare(strict_types=1);
 
 namespace App\Tkhs;

@@ -1,15 +1,4 @@
 <?php
-/**
- * PHP version 8.3
- *
- * This file returns a console application for phpstan analysis.
- *
- * @category Test
- * @package  App\Tkhs
- * @author   stefafafan <github.le5ke@stenyan.jp>
- * @license  MIT https://opensource.org/licenses/MIT
- * @link     https://github.com/stefafafan/tkhs
- */
 declare(strict_types=1);
 
 use Symfony\Component\Console\Application;
