@@ -25,7 +25,7 @@ class GenerateHtmlCommand extends Command
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $filename = $input->getArgument('filename');
         $filesystem = new Filesystem();
