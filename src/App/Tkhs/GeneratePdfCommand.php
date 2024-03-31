@@ -19,7 +19,11 @@ class GeneratePdfCommand extends Command
             ->setName('generate:pdf')
             ->setDescription('Converts and combines HTML files in the output directory into a single PDF file.')
             ->addArgument('filename', InputArgument::REQUIRED, 'The path to the text file.')
-            ->addArgument('output', InputArgument::OPTIONAL, 'The pdf output name, if not specified "slide.pdf" will be used.');
+            ->addArgument(
+                'output',
+                InputArgument::OPTIONAL,
+                'The pdf output name, if not specified "slide.pdf" will be used.'
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

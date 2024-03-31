@@ -18,7 +18,11 @@ class GenerateHtmlCommand extends Command
             ->setName('generate:html')
             ->setDescription('Converts a text file with Japanese strings into presentable HTML files.')
             ->addArgument('filename', InputArgument::REQUIRED, 'The path to the text file.')
-            ->addArgument('output', InputArgument::OPTIONAL, 'The directory to output the html files. If not specified, "output" will be used.');
+            ->addArgument(
+                'output',
+                InputArgument::OPTIONAL,
+                'The directory to output the html files. If not specified, "output" will be used.'
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -53,7 +57,9 @@ class GenerateHtmlCommand extends Command
     private function generateHtmlContent(int $index, int $count, string $content): string
     {
         $prevLink = $index === 0 ? '<span>前</span>' : "<span><a href=\"./$index.html\">前</a></span>";
-        $nextLink = $index + 1 === $count ? '<span>次</span>' : "<span><a href=\"./" . ($index + 2) . ".html\">次</a></span>";
+        $nextLink = $index + 1 === $count
+            ? '<span>次</span>'
+            : "<span><a href=\"./" . ($index + 2) . ".html\">次</a></span>";
         return <<<HTML
 <!DOCTYPE html>
 <html lang="ja">
