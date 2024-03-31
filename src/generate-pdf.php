@@ -55,8 +55,8 @@ class GeneratePdfCommand extends Command
             $pdf->MultiCell($width, $height, $line, 0, 'C', false, 1, null, null, true, 0, false, true, $height, 'M');
         }
 
-        $outputDir = $input->getArgument('output') ?? '../slide.pdf';
-        $pdf->Output(__DIR__ . '/' . $outputDir, 'F');
+        $outputDir = $input->getArgument('output') ?? 'slide.pdf';
+        $pdf->Output(__DIR__ . '/../' . $outputDir, 'F');
         $output->writeln("PDF generated: $outputDir");
 
         return Command::SUCCESS;
