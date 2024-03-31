@@ -7,5 +7,10 @@
         "symfony/filesystem": "^7.0",
         "symfony/finder": "^7.0",
         "tecnickcom/tcpdf": "^6.7"
+    },
+    "config": {
+        "platform": {
+            "php": "8.3.4"
+        }
     }
 }
