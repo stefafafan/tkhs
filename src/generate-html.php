@@ -27,10 +27,15 @@ class GenerateHtmlCommand extends Command
             return Command::FAILURE;
         }
 
+        $lines = file($filename, FILE_IGNORE_NEW_LINES);
+        if ($lines === false) {
+            $output->writeln('<error>Failed to read file.</error>');
+            return Command::FAILURE;
+        }
+
         $outputDir = $input->getArgument('output') ?? 'output';
         $filesystem->mkdir($outputDir);
 
-        $lines = file($filename, FILE_IGNORE_NEW_LINES);
         foreach ($lines as $index => $line) {
             $htmlContent = $this->generateHtmlContent($index, count($lines), $line);
             $htmlFilename = sprintf('%s/%s.html', $outputDir, $index + 1);
