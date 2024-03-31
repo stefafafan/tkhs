@@ -3,4 +3,4 @@ parameters:
     paths:
         - src
     symfony:
-        consoleApplicationLoader: bin/tkhs.php
+        consoleApplicationLoader: tests/console-application.php
