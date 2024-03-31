@@ -41,7 +41,7 @@ class GenerateHtmlCommand extends Command
         return Command::SUCCESS;
     }
 
-    private function generateHtmlContent($index, $count, $content)
+    private function generateHtmlContent(int $index, int $count, string $content): string
     {
         $prevLink = $index === 0 ? '<span>前</span>' : "<span><a href=\"./$index.html\">前</a></span>";
         $nextLink = $index + 1 === $count ? '<span>次</span>' : "<span><a href=\"./" . ($index + 2) . ".html\">次</a></span>";
