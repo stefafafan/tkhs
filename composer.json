@@ -2,6 +2,9 @@
     "name": "stefafafan/tkhs",
     "description": "tkhs is a simple tool to generate a presentable artifact in a Takashi-style.",
     "license": "MIT",
+    "scripts": {
+        "stan": "php ./vendor/bin/phpstan analyse --memory-limit 1G -c phpstan.neon"
+    },
     "config": {
         "platform": {
             "php": "8.3.4"
