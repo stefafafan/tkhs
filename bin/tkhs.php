@@ -1,11 +1,10 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
-
 use Symfony\Component\Console\Application;
+use App\Tkhs\GenerateHtmlCommand;
+use App\Tkhs\GeneratePdfCommand;
 
-include("generate-html.php");
-include("generate-pdf.php");
+require __DIR__ . '/../vendor/autoload.php';
 
 $app = new Application();
 $app->add(new GenerateHtmlCommand());

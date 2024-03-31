@@ -5,6 +5,11 @@
     "scripts": {
         "phpstan": "php ./vendor/bin/phpstan analyse --memory-limit 1G -c phpstan.neon"
     },
+    "autoload": {
+        "psr-4": {
+            "App\\Tkhs\\": "src/App/Tkhs"
+        }
+    },
     "config": {
         "platform": {
             "php": "8.3.4"
