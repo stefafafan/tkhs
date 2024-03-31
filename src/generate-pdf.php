@@ -26,6 +26,12 @@ class GeneratePdfCommand extends Command
             $output->writeln('<error>File does not exist.</error>');
             return Command::FAILURE;
         }
+
+        $lines = file($filename, FILE_IGNORE_NEW_LINES);
+        if ($lines === false) {
+            $output->writeln('<error>Failed to read file.</error>');
+            return Command::FAILURE;
+        }
         
         // Landscape, 720x405 size (16:9 aspect ratio). UTF-8 support for Japanese characters.
         $pdf = new TCPDF('L', 'pt', array(720, 405), true, 'UTF-8', false);
@@ -39,8 +45,7 @@ class GeneratePdfCommand extends Command
         $pdf->setPrintHeader(false);
         $pdf->setPrintFooter(false);
         
-        $lines = file($filename, FILE_IGNORE_NEW_LINES);
-        foreach ($lines as $index => $line) {
+        foreach ($lines as $line) {
             $pdf->AddPage();
 
             // An arbitrary value, which fits the 720x405 size.

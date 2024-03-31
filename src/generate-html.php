@@ -27,10 +27,15 @@ class GenerateHtmlCommand extends Command
             return Command::FAILURE;
         }
 
+        $lines = file($filename, FILE_IGNORE_NEW_LINES);
+        if ($lines === false) {
+            $output->writeln('<error>Failed to read file.</error>');
+            return Command::FAILURE;
+        }
+
         $outputDir = $input->getArgument('output') ?? 'output';
         $filesystem->mkdir($outputDir);
 
-        $lines = file($filename, FILE_IGNORE_NEW_LINES);
         foreach ($lines as $index => $line) {
             $htmlContent = $this->generateHtmlContent($index, count($lines), $line);
             $htmlFilename = sprintf('%s/%s.html', $outputDir, $index + 1);
@@ -41,7 +46,7 @@ class GenerateHtmlCommand extends Command
         return Command::SUCCESS;
     }
 
-    private function generateHtmlContent($index, $count, $content)
+    private function generateHtmlContent(int $index, int $count, string $content): string
     {
         $prevLink = $index === 0 ? '<span>前</span>' : "<span><a href=\"./$index.html\">前</a></span>";
         $nextLink = $index + 1 === $count ? '<span>次</span>' : "<span><a href=\"./" . ($index + 2) . ".html\">次</a></span>";
