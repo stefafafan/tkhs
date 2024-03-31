@@ -1,10 +1,13 @@
 <?php
 
+namespace App\Tkhs;
+
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
+use TCPDF;
 
 class GeneratePdfCommand extends Command
 {
@@ -61,7 +64,7 @@ class GeneratePdfCommand extends Command
         }
 
         $outputDir = $input->getArgument('output') ?? 'slide.pdf';
-        $pdf->Output(__DIR__ . '/../' . $outputDir, 'F');
+        $pdf->Output(__DIR__ . '/../../../' . $outputDir, 'F');
         $output->writeln("PDF generated: $outputDir");
 
         return Command::SUCCESS;

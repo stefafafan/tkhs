@@ -2,3 +2,5 @@ parameters:
     level: 8
     paths:
         - src
+    symfony:
+        consoleApplicationLoader: tests/console-application.php

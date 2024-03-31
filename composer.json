@@ -5,13 +5,23 @@
     "scripts": {
         "phpstan": "php ./vendor/bin/phpstan analyse --memory-limit 1G -c phpstan.neon"
     },
+    "autoload": {
+        "psr-4": {
+            "App\\Tkhs\\": "src/App/Tkhs"
+        }
+    },
     "config": {
         "platform": {
             "php": "8.3.4"
+        },
+        "allow-plugins": {
+            "phpstan/extension-installer": true
         }
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.10"
+        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-symfony": "^1.3",
+        "phpstan/extension-installer": "^1.3"
     },
     "require": {
         "symfony/console": "^7.0",
