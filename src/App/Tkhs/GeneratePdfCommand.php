@@ -66,7 +66,7 @@ class GeneratePdfCommand extends Command
             $pdf->SetY($startY);
 
             // Print a MultiCell with text centered (horizontally and vertically).
-            $pdf->MultiCell($width, $height, $line, 0, 'C', false, 1, '', null, true, 0, false, true, $height, 'M');
+            $pdf->MultiCell($width, $height, $line, 0, 'C', false, 1, null, null, true, 0, false, true, $height, 'M');
         }
 
         $outputDir = $input->getArgument('output') ?? 'slide.pdf';
