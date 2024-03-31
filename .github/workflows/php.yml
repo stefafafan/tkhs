@@ -1,4 +1,4 @@
-name: PHP Composer Validation
+name: PHP
 
 on:
   push:
