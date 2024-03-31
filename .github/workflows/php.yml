@@ -47,9 +47,7 @@ jobs:
       run: composer install --prefer-dist --no-progress
 
     - name: Run phpstan
-      run:
-        phpstan --version
-        phpstan analyse --memory-limit 1G -c phpstan.neon
+      run: phpstan analyse --memory-limit 1G -c phpstan.neon
 
   phpcs:
     runs-on: ubuntu-latest
