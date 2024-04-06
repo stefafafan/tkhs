@@ -32,12 +32,14 @@ class GenerateHtmlCommand extends Command
 
         if (!$filesystem->exists($filename)) {
             $output->writeln('<error>File does not exist.</error>');
+
             return Command::FAILURE;
         }
 
         $lines = file($filename, FILE_IGNORE_NEW_LINES);
-        if ($lines === false) {
+        if (false === $lines) {
             $output->writeln('<error>Failed to read file.</error>');
+
             return Command::FAILURE;
         }
 
@@ -56,10 +58,11 @@ class GenerateHtmlCommand extends Command
 
     private function generateHtmlContent(int $index, int $count, string $content): string
     {
-        $prevLink = $index === 0 ? '<span>前</span>' : "<span><a href=\"./$index.html\">前</a></span>";
+        $prevLink = 0 === $index ? '<span>前</span>' : "<span><a href=\"./$index.html\">前</a></span>";
         $nextLink = $index + 1 === $count
             ? '<span>次</span>'
-            : "<span><a href=\"./" . ($index + 2) . ".html\">次</a></span>";
+            : '<span><a href="./'.($index + 2).'.html">次</a></span>';
+
         return <<<HTML
             <!DOCTYPE html>
             <html lang="ja">
