@@ -61,41 +61,41 @@ class GenerateHtmlCommand extends Command
             ? '<span>次</span>'
             : "<span><a href=\"./" . ($index + 2) . ".html\">次</a></span>";
         return <<<HTML
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>発表資料</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        p {
-            font-size: 20vh;
-            margin: 0;
-            text-align: center;
-        }
-        footer {
-            position: fixed;
-            left: 50%;
-            bottom: 20px;
-            transform: translate(-50%, -50%);
-            margin: 0 auto;
-        }
-    </style>
-</head>
-<body>
-    <p>$content</p>
-</body>
-<footer>
-    $prevLink
-    $nextLink
-</footer>
-</html>
-HTML;
+            <!DOCTYPE html>
+            <html lang="ja">
+            <head>
+                <meta charset="UTF-8">
+                <title>発表資料</title>
+                <style>
+                    body {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        margin: 0;
+                    }
+                    p {
+                        font-size: 20vh;
+                        margin: 0;
+                        text-align: center;
+                    }
+                    footer {
+                        position: fixed;
+                        left: 50%;
+                        bottom: 20px;
+                        transform: translate(-50%, -50%);
+                        margin: 0 auto;
+                    }
+                </style>
+            </head>
+            <body>
+                <p>$content</p>
+            </body>
+            <footer>
+                $prevLink
+                $nextLink
+            </footer>
+            </html>
+            HTML;
     }
 }
