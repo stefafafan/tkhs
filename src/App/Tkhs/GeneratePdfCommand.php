@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
-use TCPDF;
 
 class GeneratePdfCommand extends Command
 {
@@ -33,17 +32,19 @@ class GeneratePdfCommand extends Command
 
         if (!$filesystem->exists($filename)) {
             $output->writeln('<error>File does not exist.</error>');
+
             return Command::FAILURE;
         }
 
         $lines = file($filename, FILE_IGNORE_NEW_LINES);
-        if ($lines === false) {
+        if (false === $lines) {
             $output->writeln('<error>Failed to read file.</error>');
+
             return Command::FAILURE;
         }
 
         // Landscape, 720x405 size (16:9 aspect ratio). UTF-8 support for Japanese characters.
-        $pdf = new TCPDF('L', 'pt', [720, 405], true, 'UTF-8', false);
+        $pdf = new \TCPDF('L', 'pt', [720, 405], true, 'UTF-8', false);
 
         // Set font for Japanese characters. Font size is set to 75, which is an arbitrary value set to fit the page.
         $pdf->SetFont('kozminproregular', '', 75, '', 'default', true);
@@ -70,7 +71,7 @@ class GeneratePdfCommand extends Command
         }
 
         $outputDir = $input->getArgument('output') ?? 'slide.pdf';
-        $pdf->Output(__DIR__ . '/../../../' . $outputDir, 'F');
+        $pdf->Output(__DIR__.'/../../../'.$outputDir, 'F');
         $output->writeln("PDF generated: $outputDir");
 
         return Command::SUCCESS;
