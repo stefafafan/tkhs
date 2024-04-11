@@ -16,9 +16,9 @@ $ cd tkhs
 $ composer install
 ```
 
-Prepare presentation material, so that 1 line is equivalent to 1 slide. Check out `sample/sample.txt`.
+Prepare presentation material, so that 1 line is equivalent to 1 slide. Check out `./sample/sample.txt`.
 ```sh
-$ cat sample/sample.txt
+$ cat ./sample/sample.txt
 はじめまして
 この発表は、
 stefafafan/tkhs
@@ -40,7 +40,7 @@ stefafafan/tkhs
 Use `generate:html` to generate a series of HTML files. By default the output directory is `output/`. Make sure you have `php` installed.
 
 ```sh
-$ php ./bin/tkhs generate:html sample/sample.txt
+$ php ./bin/tkhs generate:html ./sample/sample.txt
 Exported: output/1.html
 Exported: output/2.html
 Exported: output/3.html
@@ -60,7 +60,7 @@ Exported: output/15.html
 
 You can specify the output directory by giving the directory name.
 ```sh
-$ php ./bin/tkhs generate:html sample/sample.txt foobar
+$ php ./bin/tkhs generate:html ./sample/sample.txt foobar
 Exported: foobar/1.html
 Exported: foobar/2.html
 Exported: foobar/3.html
@@ -86,14 +86,14 @@ Open `1.html` and you will have the first slide presented. Links to the next and
 Similarly, you can use `generate:pdf` to compile the slide to a single PDF file. This is especially useful when you want to just have a single file, or upload the slide to any slide sharing service.
 
 ```sh
-$ php ./bin/tkhs generate:pdf sample/sample.txt
+$ php ./bin/tkhs generate:pdf ./sample/sample.txt
 PDF generated: slide.pdf
 ```
 
 By default the slide will be exported to `slide.pdf`, but you can specify a different filename as well.
 
 ```sh
-$ php ./bin/tkhs generate:pdf sample/sample.txt someother-slide.pdf
+$ php ./bin/tkhs generate:pdf ./sample/sample.txt someother-slide.pdf
 PDF generated: someother-slide.pdf
 ```
 
