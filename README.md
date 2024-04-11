@@ -4,6 +4,9 @@ tkhs is a simple CLI program that helps generate presentation material in a Taka
 
 See here for an explanation of Takahashi-method (Japanese): http://www.rubycolor.org/takahashi/
 
+> [!NOTE]
+> This is just a fanmade tool by @stefafafan; the tool has nothing to do with Takahashi's actual presentations!
+
 ## Usage
 ### Preparation
 After cloning this repository, install dependencies with `composer`
@@ -97,3 +100,6 @@ PDF generated: someother-slide.pdf
 Open the pdf file and now you can start presenting! :sparkles:
 
 ![Screenshot of the exported PDF opened via the Preview app](./pdf_slide_example.png)
+
+## Customization
+There isn't really any custom options implemented, so if you want to change the styling of the HTML or PDFs, try directly adjusting the relavent php files (they are located under `src/App/Tkhs`).
